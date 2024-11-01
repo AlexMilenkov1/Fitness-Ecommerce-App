@@ -29,6 +29,13 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+MY_APPS = [
+    'fitnessTracker.goals',
+    'fitnessTracker.meals',
+    'fitnessTracker.progress',
+    'fitnessTracker.workout'
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+] + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,7 +84,7 @@ WSGI_APPLICATION = 'fitnessTracker.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fitnessApp",
+        "NAME": "fitnessapp",
         "USER": "postgres",
         "PASSWORD": "999999991",
         "HOST": "localhost",
