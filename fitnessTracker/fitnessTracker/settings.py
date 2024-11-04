@@ -33,7 +33,8 @@ MY_APPS = [
     'fitnessTracker.goals',
     'fitnessTracker.meals',
     'fitnessTracker.progress',
-    'fitnessTracker.workout'
+    'fitnessTracker.workout',
+    'fitnessTracker.accounts'
 ]
 
 
