@@ -1,0 +1,87 @@
+@media screen and (max-width: 800px) {
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #333;
+        width: 100vw;
+        text-align: end;
+        padding-bottom: 1em;
+    }
+
+    .navbar nav ul li a {
+        color: #fff;
+        font-size: 11px;
+    }
+
+    .navbar nav ul {
+        display: block;
+        
+    }
+
+    .navbar nav ul li {
+        padding-top: 0.3em;
+        padding-bottom: 0.4em;
+        padding-right: 1em;
+    }
+
+    .navbar .menu-img {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header .header-row{
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+        padding: 2em;
+    }
+
+    .header-row .col-2 {
+        width: 300px;
+    }
+
+    main .initial-category-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main .initial-category-image {
+        width: 40%;
+    }
+
+    .featured-products {
+        flex-direction: column;
+    }
+
+    .feature-product-container {
+        padding: 2em;
+    }
+
+    .testimonials {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .testimonial-container {
+        font-size: 13px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: 1em 2em;
+    }
+
+    .brands {
+        padding: 2em;
+    }
+
+    .additional-product-container {
+        flex-direction: column;
+    }
+
+    .addition-row2 {
+        padding: 2em;
+    }
+}

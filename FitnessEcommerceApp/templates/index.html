@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <header>
+        <div class="header-row">
+            <div class="col-1">
+                <h1>Give your workout<br>a new style!</h1>
+                <p>Winners never quit and quitters never win. So all you need to do is push<br>yourself above your
+                    limits
+                    and enjoy the success.</p>
+                <a href="#" class="btn">View Products</a>
+            </div>
+            <div class="col-2">
+                <img src="{% static 'images/image1.png' %}">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Additional offer -->
+        <div class="offer">
+            <div class="additional-product-container">
+                <div class="addition-row1">
+                    <div class="additional-product-img">
+                        <img src="{% static 'images/exclusive.png' %}">
+                    </div>
+                </div>
+
+                <div class="addition-row2">
+                    <p>Exclusevily Available on RedStore</p>
+                    <h1>Smart Band 4</h1>
+                    <p>The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED color full-touch display with
+                        adjustable brightness, so everything is clear as can be.</p>
+                    <p><a href="#" class="btn">Buy Now</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <div class="testimonial-container">
+                <i class="fa fa-quote-left"></i>
+                <p>I stumbled upon this online sports clothing store and it was a game-changer! The quality of their
+                    products is top-notch, and their range caters to every athlete's needs.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="test-profile"><img src="{% static 'images/user-1.png' %}"></div>
+                <h3>Marry Watson</h3>
+            </div>
+
+            <div class="testimonial-container">
+                <i class="fa fa-quote-left"></i>
+                <p>As an avid fitness enthusiast, finding comfortable yet durable sports clothing has always been a
+                    challenge. That's until I discovered this gem of a website!</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="test-profile"><img src="{% static 'images/user-2.png' %}"></div>
+                <h3>John Browney</h3>
+            </div>
+
+            <div class="testimonial-container">
+                <i class="fa fa-quote-left"></i>
+                <p>Shopping for sports clothing online can be daunting, but this website makes it a breeze. Their
+                    intuitive
+                    interface, detailed product descriptions, and hassle-free checkout process have simplified my
+                    shopping
+                    experience.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <div class="test-profile"><img src="{% static 'images/user-3.png' %}"></div>
+                <h3>Jeremy Sterling</h3>
+            </div>
+        </div>
+
+        <!-- Brands -->
+        <div class="brands">
+            <div class="brand-row">
+                <img src="{% static 'images/logo-coca-cola.png' %}">
+            </div>
+            <div class="brand-row">
+                <img src="{% static 'images/logo-godrej.png' %}">
+            </div>
+            <div class="brand-row">
+                <img src="{% static 'images/logo-oppo.png' %}">
+            </div>
+            <div class="brand-row">
+                <img src="{% static 'images/logo-paypal.png' %}">
+            </div>
+            <div class="brand-row">
+                <img src="{% static 'images/logo-philips.png' %}">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="fot-col">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="install-stores">
+                    <div class="install-img"><img src="{% static 'images/play-store.png' %}"></div>
+                    <div class="install-img"><img src="{% static 'images/app-store.png'%}"></div>
+                </div>
+            </div>
+            <div class="fot-col">
+                <div class="logo-footer"><img src="{% static 'images/logo-white.png' %}"></div>
+                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+            </div>
+            <div class="fot-col">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Coupons</a></li>
+                    <li><a href="#">Blog Post</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Join Affiliate</a></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="fot-col">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

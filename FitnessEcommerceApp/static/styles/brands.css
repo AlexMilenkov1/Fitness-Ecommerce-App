@@ -1,0 +1,16 @@
+.brands {
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    justify-content: center;
+}
+
+.brands img {
+    filter: grayscale(100%);
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.brands img:hover {
+    filter: grayscale(0);
+}

@@ -1,0 +1,44 @@
+.testimonials {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.testimonial-container {
+    flex: 0 1 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+    padding: 2em;
+    cursor: pointer;
+}
+
+.fa-quote-left {
+    color: #FF613A;
+    font-size: 1.9em;
+}
+
+.testimonial-container p {
+    font-size: 0.9em;
+    color: #5E585F;
+}
+
+.testimonial-container .fa-star {
+    color: #FF613A;
+}
+
+.test-profile {
+    width: 5em;
+
+}
+
+.test-profile img {
+    border-radius: 50%;
+}
+
+.testimonial-container h3 {
+    color: #3d3c3d;
+}

@@ -1,0 +1,26 @@
+.offer {
+    background: radial-gradient(#fff, #ffd6d6);;
+}
+
+.additional-product-container {
+    display: flex;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3em 0;
+    align-items: center;
+}
+
+.addition-row2 {
+    padding-top: 4em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+}
+
+.addition-row2 p {
+    color: #6D6966;
+}
+
+.addition-row2 h1 {
+    font-size: 3em;
+} 

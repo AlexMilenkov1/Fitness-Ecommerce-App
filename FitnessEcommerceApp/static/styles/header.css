@@ -1,0 +1,100 @@
+header {
+    background: radial-gradient(#fff, #ffd6d6);
+    width: 100vw;
+} 
+
+.navbar { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4em 4em;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.logo-img {
+    width: 10em;
+    cursor: pointer;
+}
+
+.navbar nav ul {
+    display: flex;
+    gap: 1.8em;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #5E585F;
+    position: relative;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 7.5em;
+    padding-top: 3.5em;
+}
+
+.header-row .col-1 h1 {
+    font-size: 3.5em;
+    margin: 0.5em 0;
+    line-height: 1.3em;
+}
+
+.header-row .col-1 p {
+    color: #7F6864;
+}
+
+.header-row .col-2 {
+    width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #FF613A;
+    border-radius: 18px;
+    padding: 6px 35px;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 1.7em;
+    transition: background-color 0.5s;
+}
+ 
+.btn:hover {
+    background-color: #6b3324;
+}
+
+.cart-img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.navbar nav ul li a::before {
+    content: '';
+    position: absolute;
+    background-color: #FE623A;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    top: 25px;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.navbar nav ul li a:hover:before {
+    width: 100%;
+}
+
+.menu-img {
+    width: 28px;
+    margin-left: 1em;
+    display: none;
+}
