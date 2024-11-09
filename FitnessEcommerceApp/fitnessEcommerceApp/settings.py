@@ -32,7 +32,8 @@ MY_APPS = [
     'fitnessEcommerceApp.accounts',
     'fitnessEcommerceApp.orders',
     'fitnessEcommerceApp.products',
-    'fitnessEcommerceApp.support'
+    'fitnessEcommerceApp.support',
+    'fitnessEcommerceApp.common'
 ]
 
 # Application definition

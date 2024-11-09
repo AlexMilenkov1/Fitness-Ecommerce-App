@@ -2,6 +2,7 @@
 
 html {
     font: 15px/1.7 "Poppins", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body, input, table, button {

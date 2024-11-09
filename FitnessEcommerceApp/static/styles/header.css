@@ -32,14 +32,15 @@ header {
     text-decoration: none;
     color: #5E585F;
     position: relative;
+    font-size: 1.3em;
 }
 
 .header-row {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-bottom: 7.5em;
-    padding-top: 3.5em;
+    padding-bottom: 19em;
+    padding-top: 8.5em;
 }
 
 .header-row .col-1 h1 {
