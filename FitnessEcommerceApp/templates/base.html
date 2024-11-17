@@ -10,22 +10,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="logo-img"><img src="{% static 'images/logo.png'%}"></div>
-        <nav>
+<div class="navbar">
+    <div class="logo-img"><img src="{% static 'images/logo.png' %}"></div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'all-products' %}">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Account</a></li>
+        </ul>
+        <div class="cart-img"><img src="{% static 'images/cart.png' %}"></div>
+        <div class="menu-img"><img src="{% static 'images/menu.png' %}"></div>
+    </nav>
+
+</div>
+{% block content %}
+{% endblock %}
+
+<footer>
+    <div class="footer-container">
+        <div class="fot-col">
+            <h3>Download Our App</h3>
+            <p>Download App for Android and ios mobile phone.</p>
+            <div class="install-stores">
+                <div class="install-img"><img src="{% static 'images/play-store.png' %}"></div>
+                <div class="install-img"><img src="{% static 'images/app-store.png' %}"></div>
+            </div>
+        </div>
+        <div class="fot-col">
+            <div class="logo-footer"><img src="{% static 'images/logo-white.png' %}"></div>
+            <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+        </div>
+        <div class="fot-col">
+            <h3>Useful Links</h3>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Account</a></li>
+                <li><a href="#">Coupons</a></li>
+                <li><a href="#">Blog Post</a></li>
+                <li><a href="#">Return Policy</a></li>
+                <li><a href="#">Join Affiliate</a></li>
+                <li></li>
             </ul>
-            <div class="cart-img"><img src="{% static 'images/cart.png'%}"></div>
-            <div class="menu-img"><img src="{% static 'images/menu.png' %}"></div>
-        </nav>
-    
+        </div>
+        <div class="fot-col">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">YouTube</a></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
-    {% block content %}
-    {% endblock %}
+</footer>
 </body>
 </html>

@@ -1,6 +1,4 @@
 from django.db import models
-
-from fitnessEcommerceApp import settings
 from fitnessEcommerceApp.products.models import Product
 
 
@@ -20,7 +18,7 @@ class Order(models.Model):
 
     shipping_address = models.TextField()
 
-    products = models.ManyToManyField('Product', through='OrderItem', related_name='orders')
+    products = models.ManyToManyField(Product, through='OrderItem', related_name='orders')
 
 
 class OrderItem(models.Model):
