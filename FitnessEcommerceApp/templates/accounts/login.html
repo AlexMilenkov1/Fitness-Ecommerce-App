@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <div class="background">
+        <div class="account-main">
+            <div class="account-img">
+                <img src="{% static 'images/image1.png' %}">
+            </div>
+            <div class="account-login">
+                <form>
+                    <h3>Login</h3>
+                    <div class="inputs">
+                        <input class="account-input" type="text" placeholder="email">
+                        <input class="account-input" type="password" placeholder="password">
+                    </div>
+                    <div class="submit">
+                        <button class="btn">Login</button>
+                        <p><a href="">Don't have and account?</a></p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
