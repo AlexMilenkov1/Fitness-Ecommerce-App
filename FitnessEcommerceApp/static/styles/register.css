@@ -12,11 +12,11 @@
     width: 60em;
 }
 
-.account-login {
+.account-register {
     margin-right: 10em;
 }
 
-.account-login form {
+.account-register form {
     display: flex;
     flex-direction: column;
     gap: 3em;
@@ -25,25 +25,18 @@
     border-radius: 20px;
 }
 
-.account-login form .inputs {
+.account-register form .inputs {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.account-login form .submit {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.3em;
-}
-
-.account-login form p a {
+.account-register form p a {
     text-decoration: none;
     color: #dd4b5f;
 }
 
-.account-login form h3 {
+.account-register form h3 {
     text-align: center;
     font-size: 1.8em;
 }
@@ -53,9 +46,16 @@
     border-radius: 15px;
 }
 
+
+.account-register form .submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3em;
+}
+
 .inputs div {
     display: flex;
     flex-direction: column;
     gap: 0.4em;
 }
-

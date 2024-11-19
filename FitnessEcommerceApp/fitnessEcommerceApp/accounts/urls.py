@@ -1,6 +1,9 @@
-from django.urls import path
+from django.contrib.auth.views import LogoutView
+from django.urls import path, include
 from fitnessEcommerceApp.accounts import views
 
 urlpatterns = [
-    path('login/', views.login_page, name='login')
+    path('login/', views.Login.as_view(), name='login'),
+    path('register/', views.Register.as_view(), name='register'),
+    path('logout/', LogoutView.as_view(), name='logout')
 ]

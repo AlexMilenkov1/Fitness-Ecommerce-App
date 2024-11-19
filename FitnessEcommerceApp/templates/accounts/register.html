@@ -7,15 +7,15 @@
             <div class="account-img">
                 <img src="{% static 'images/image1.png' %}">
             </div>
-            <div class="account-login">
+            <div class="account-register">
                 <form method="post">
-                    <h3>Login</h3>
+                    <h3>Register</h3>
                     <div class="inputs">
                         {{ form }}
                     </div>
                     <div class="submit">
-                        <button class="btn">Login</button>
-                        <p><a href="{% url 'register' %}">Don't have and account?</a></p>
+                        <button class="btn">Register</button>
+                        <p><a href="{% url 'login' %}">Already have an account?</a></p>
                     </div>
                     {% csrf_token %}
                 </form>

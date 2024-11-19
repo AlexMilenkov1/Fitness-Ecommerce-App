@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fitnessEcommerceApp.common.urls')),
     path('products/', include('fitnessEcommerceApp.products.urls')),
-    path('account/', include('fitnessEcommerceApp.accounts.urls'))
+    path('accounts/', include('fitnessEcommerceApp.accounts.urls'))
 ]
 
 if settings.DEBUG:
