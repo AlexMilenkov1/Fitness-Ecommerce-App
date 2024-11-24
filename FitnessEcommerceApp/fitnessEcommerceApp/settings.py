@@ -35,7 +35,10 @@ MY_APPS = [
     'fitnessEcommerceApp.orders',
     'fitnessEcommerceApp.products',
     'fitnessEcommerceApp.support',
-    'fitnessEcommerceApp.common'
+    'fitnessEcommerceApp.common',
+    'fitnessEcommerceApp.products.templatetags',
+
+    'django_bootstrap5',
 ]
 
 # Application definition

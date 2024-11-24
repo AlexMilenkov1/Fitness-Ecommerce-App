@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    {% load rating_stars %}
+    <h2 class="title">Featured Products</h2>
+    <div class="featured-products">
+        {% for product in products %}
+            {% if product.in_stock > 0 %}
+                <div class="feature-product-container">
+                    <a href="{% url 'product-info' product.pk %}">
+                        <div class="feature-product-img"><img src="{{ product.image_url }}"></div>
+                        <h3>{{ product.name }}</h3>
+                        <div class="rating">
+                            {{ product.rating|star_rating|safe }}
+                        </div>
+                        <p>${{ product.price|floatformat:2 }}</p>
+                    </a>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>No available products</p>
+        {% endfor %}
+
+    </div>
+
+    <div class="pagination">
+    <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
+
+        <span class="buttons">
+            {% if page_obj.has_previous and page_obj.has_next %}
+                <a href="?page={{ page_obj.previous_page_number }}">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+                <a href="?page={{ page_obj.next_page_number }}">
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+
+            {% elif page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+                
+            {% elif page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            {% endif %}
+    </span>
+    </div>
+
+
+{% endblock %}

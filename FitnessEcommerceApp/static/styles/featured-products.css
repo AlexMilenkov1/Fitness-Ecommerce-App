@@ -7,7 +7,7 @@
 }
 
 .initial-category-image {
-    flex: 0 0 20%;
+    flex: 0 0 15%;
 }
 
 .initial-category-image:hover {
@@ -15,24 +15,29 @@
 }
 
 .featured-products {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    margin-bottom: 6em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+    gap: 1.7em; /* Spacing between items */
+    margin-bottom: 1em;
+    padding: 3.5em;
+    justify-content: center; /* Center the grid container */
 }
 
 .feature-product-container {
-    flex: 0 0 18%;
     display: flex;
     flex-direction: column;
-    gap: 0.2em;
+    gap: 0.5em;
+    max-width: 36em;
     cursor: pointer;
     transition: transform 0.5s;
 }
 
+.feature-product-container a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .title {
-    margin-bottom: 2em;
     text-align: center;
 }
 

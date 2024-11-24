@@ -12,6 +12,9 @@ class Category(models.Model):
         null=True
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
@@ -22,7 +25,9 @@ class Product(models.Model):
         null=False,
     )
 
-    description = models.TextField()
+    description = models.TextField(
+        max_length=200,
+    )
 
     price = models.DecimalField(
         max_digits=10,
@@ -36,8 +41,17 @@ class Product(models.Model):
         null=False,
     )
 
+    rating = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+    )
+
     image_url = models.URLField(
         blank=False,
         null=False,
     )
+
+    def __str__(self):
+        return self.name
 

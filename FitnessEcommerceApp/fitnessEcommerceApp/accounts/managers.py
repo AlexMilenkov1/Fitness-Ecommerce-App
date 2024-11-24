@@ -9,9 +9,6 @@ class AppUserManager(BaseUserManager):
 
     def _create_user(self, email, password, **extra_fields):
         email = self.normalize_email(email)
-        # Lookup the real model class from the global app registry so this
-        # manager method can be used in migrations. This is fine because
-        # managers are by definition working on the real model.
         GlobalUserModel = apps.get_model(
             self.model._meta.app_label, self.model._meta.object_name
         )

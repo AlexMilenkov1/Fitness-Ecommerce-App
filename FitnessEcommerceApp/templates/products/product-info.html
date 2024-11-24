@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <div class="product-info-wrapper">
+        <div class="product-info-container">
+            <div class="product-info-img">
+                <img src="{{ product.image_url }}">
+            </div>
+
+            <div class="product-info-details">
+                <h4 class="category">{{ product.category }}</h4>
+                <div class="title-price">
+                    <h2 class="title">{{ product.name }}</h2>
+                    <p>Price: ${{ product.price|floatformat:2 }}</p>
+                </div>
+
+                <p class="description">
+                    {{ product.description }}
+                </p>
+
+                <a class="btn">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

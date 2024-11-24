@@ -1,0 +1,52 @@
+.pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1em;
+}
+
+.buttons a,
+.buttons span.current {
+    font-size: 20px;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    background-color: #dcb39f;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buttons a:hover {
+    background-color: #be8659;
+}
+
+.buttons span.current {
+    cursor: default;
+    text-shadow: none;
+}
+.buttons a:first-child,
+.buttons a:last-child {
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    text-shadow: none;
+}
+
+.buttons a.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button {
+    background-color: white;
+    border: none;
+    font-size: 22px;
+    margin: 2.5px 0px 0px 8px;
+    padding: 0;
+    cursor: pointer;
+}
