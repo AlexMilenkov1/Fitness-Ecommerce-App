@@ -47,7 +47,8 @@ class Product(models.Model):
         null=False,
     )
 
-    image_url = models.URLField(
+    image_url = models.ImageField(
+        upload_to='products_photos',
         blank=False,
         null=False,
     )
