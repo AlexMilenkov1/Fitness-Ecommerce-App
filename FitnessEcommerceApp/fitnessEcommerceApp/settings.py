@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'fitnessEcommerceApp.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fitness_ecom_app",
+        "NAME": "fitness_app",
         "USER": "postgres",
         "PASSWORD": "999999991",
         "HOST": "localhost",

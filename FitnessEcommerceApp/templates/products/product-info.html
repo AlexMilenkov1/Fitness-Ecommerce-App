@@ -18,9 +18,12 @@
                 <p class="description">
                     {{ product.description }}
                 </p>
-
-                <a class="btn">Add to cart</a>
-
+                
+                <!-- Form for adding product to cart -->
+                <form method="post" action="{% url 'add-product-to-cart' product.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Add to Cart</button>
+                </form>
             </div>
         </div>
     </div>
