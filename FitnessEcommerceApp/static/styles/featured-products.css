@@ -14,6 +14,23 @@
     background: rgba(119, 117, 115, 0.466);
 }
 
+.feature-product-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3; /* Set a consistent aspect ratio for all images */
+    width: 100%; /* Ensure images scale within their containers */
+    background-color: #f0f0f0; /* Optional background color for empty space */
+}
+
+.feature-product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image fills the container */
+    object-position: center;
+    background-color: #ffffff/* Centers the image within its container */
+}
+
+
 .featured-products {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 products per row */

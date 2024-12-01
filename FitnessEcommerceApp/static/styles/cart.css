@@ -1,0 +1,95 @@
+.shopping-container {
+    margin: 5em 10em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+th {
+    text-align: left;
+    padding: 1em;
+    color: #fff;
+    background-color: #ff523b;
+    font-weight: normal;
+}
+
+td {
+    padding: 0.7em 0.8em;
+}
+
+td input {
+    width: 4em;
+    height: 3em;
+    padding: 1em;
+}
+
+td a {
+    color: #ff523b;
+    text-decoration: none;
+}
+
+td .image-wrapper {
+    width: 7em;
+    height: 7em;
+    margin-right: 1em;
+    overflow: hidden; /* Hide overflow to avoid cutting the image */
+    display: flex;
+    justify-content: center; /* Center the image */
+    align-items: center; /* Vertically center the image */
+}
+
+td .image-wrapper img {
+    width: 100%; /* Ensure image fills the container */
+    height: 100%; /* Maintain aspect ratio */
+    object-fit: fill; /* Ensure the image fits inside the box without cutting */
+}
+
+.total-section {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10em;
+    margin-bottom: 2em;
+    gap: 2em;
+}
+
+.total-section  {
+    margin-bottom: 23em;
+}
+
+
+
+.cart-info form .button {
+    color: #ff523b;
+    width: 20px;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.empty-cart {
+    text-align: center;
+    margin-bottom: 2.5em;
+}
+
+.completed-title{
+    text-align: center;
+}
+
+.completed-link {
+    margin-left: 57em;
+    margin-bottom: 50em;
+    text-decoration: none;
+    color: #ff523b;
+}
+
+.completed-wrapper {
+    padding-top: 15em;
+    margin-bottom: 25.7em;
+}

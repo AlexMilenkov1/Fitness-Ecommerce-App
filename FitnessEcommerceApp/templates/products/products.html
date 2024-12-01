@@ -9,7 +9,7 @@
             {% if product.in_stock > 0 %}
                 <div class="feature-product-container">
                     <a href="{% url 'product-info' product.pk %}">
-                        <div class="feature-product-img"><img src="{{ product.image_url }}"></div>
+                        <div class="feature-product-img"><img src="{{ product.image_url.url }}"></div>
                         <h3>{{ product.name }}</h3>
                         <div class="rating">
                             {{ product.rating|star_rating|safe }}

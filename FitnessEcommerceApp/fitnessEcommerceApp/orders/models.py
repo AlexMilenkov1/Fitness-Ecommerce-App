@@ -26,22 +26,26 @@ class CartItem(models.Model):
 
 # Create your models here.
 class Order(models.Model):
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,
-        related_name='order'
+        related_name='orders'
     )
 
     created_at = models.DateTimeField(
-        auto_now_add=True
+        auto_now_add=True,
+        null=True,
+        blank=True
     )
 
-    is_paid = models.BooleanField(
+    is_sent = models.BooleanField(
         default=False,
+        null=True,
+        blank=True
     )
 
-    cart = models.OneToOneField(
+    cart = models.ForeignKey(
         Cart,
         on_delete=models.CASCADE,
-        related_name='order'
+        related_name='orders'
     )

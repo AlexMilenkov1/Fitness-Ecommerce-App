@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="completed-wrapper">
+        <h1 class="completed-title">Your order was successfully completed!</h1>
+        <a href="{% url 'index' %}" class="completed-link">Go back to home page ></a>
+    </div>
+{% endblock %}
