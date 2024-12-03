@@ -1,0 +1,26 @@
+.form-class-delete {
+    max-width: 600px;
+    margin: 15em auto 20em auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #eac8b6;
+}
+
+.form-class-delete h2 {
+    text-align: center;
+}
+
+.btn-delete {
+    display: inline-block;
+    background-color: #FF613A;
+    border-radius: 18px;
+    padding: 6px 35px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.5s;
+    margin-top: 1.7em;
+    margin-bottom: 1.7em;
+    margin-left: 12em;
+    cursor: pointer;
+}

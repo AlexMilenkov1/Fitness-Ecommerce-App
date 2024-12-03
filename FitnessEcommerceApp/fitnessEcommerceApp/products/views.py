@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, View, CreateView
+from django.views.generic import ListView, DetailView, View, CreateView, UpdateView, DeleteView
 
 from fitnessEcommerceApp.orders.models import Cart, CartItem
-from fitnessEcommerceApp.products.forms import CreateProductForm
+from fitnessEcommerceApp.products.forms import CreateProductForm, EditProductForm
 from fitnessEcommerceApp.products.models import Product
 
 
@@ -47,7 +47,26 @@ class AddProductToCart(LoginRequiredMixin, View):
         return redirect('all-products')
 
 
-class AddProduct(CreateView):
+class AddProduct(LoginRequiredMixin, CreateView):
     template_name = 'products/add-product.html'
     form_class = CreateProductForm
     success_url = reverse_lazy('all-products')
+    model = Product
+
+
+class EditProduct(LoginRequiredMixin, UpdateView):
+    template_name = 'products/edit-product.html'
+    form_class = EditProductForm
+    model = Product
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'product-info',
+            kwargs={'pk': self.object.pk}
+        )
+
+
+class DeleteProduct(LoginRequiredMixin, DeleteView):
+    template_name = 'products/delete-product.html'
+    success_url = reverse_lazy('all-products')
+    model = Product

@@ -66,3 +66,22 @@
     color: #6f7172;
     font-size: 1.2em;
 }
+
+.edit-delete-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-delete-wrapper .icons {
+    display: flex;
+    gap: 1em;
+}
+
+
+.edit-delete-wrapper a i {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
