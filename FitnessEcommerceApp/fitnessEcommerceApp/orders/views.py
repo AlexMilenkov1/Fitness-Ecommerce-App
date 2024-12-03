@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DeleteView, TemplateView
 
@@ -38,6 +39,31 @@ def remove_product(request, pk):
     return redirect('cart')
 
 
+def update_cart(request, pk):
+    if request.method == 'POST':
+        cart = get_object_or_404(Cart, pk=pk)
+
+        quantities = request.POST.dict()
+
+        for key, value in quantities.items():
+            # Check if the key matches the pattern "quantities[<item_id>]"
+            if key.startswith('quantities[') and key.endswith(']'):
+                try:
+                    # Extract the item ID from the key
+                    item_id = key[11:-1]  # Removes "quantities[" and "]"
+                    item = CartItem.objects.get(id=item_id, cart=cart)
+
+                    item.quantity = int(value)  # Update the quantity
+                    item.save()
+                except (CartItem.DoesNotExist, ValueError):
+                    # Handle missing CartItem or invalid quantity gracefully
+                    continue
+                except IntegrityError:
+                    pass
+
+        return redirect('create-order', pk=cart.id)
+
+
 def create_order(request, pk):
     cart = Cart.objects.get(pk=pk)
 
@@ -49,7 +75,15 @@ def create_order(request, pk):
     new_order.save()
 
     cart_items = CartItem.objects.filter(cart=cart)
+
+    for item in cart_items:
+        product = item.product
+        quantity = item.quantity
+
+        product.in_stock -= quantity
+
+        product.save()
+
     cart_items.delete()
 
     return redirect('complete-order')
-

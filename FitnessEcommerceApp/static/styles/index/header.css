@@ -99,3 +99,7 @@ header {
     margin-left: 1em;
     display: none;
 }
+
+#logout {
+    cursor: pointer;
+}

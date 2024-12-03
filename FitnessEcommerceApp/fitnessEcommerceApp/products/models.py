@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -39,12 +40,18 @@ class Product(models.Model):
     in_stock = models.PositiveIntegerField(
         blank=False,
         null=False,
+        validators=[
+            MinValueValidator(0, message='You need to enter a numer higher than 0!')
+        ]
     )
 
     rating = models.PositiveIntegerField(
         default=0,
         blank=False,
         null=False,
+        validators=[
+            MaxValueValidator(5, message="You can't exceed the value of 5!")
+        ]
     )
 
     image_url = models.ImageField(

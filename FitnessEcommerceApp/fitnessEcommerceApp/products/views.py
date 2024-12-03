@@ -1,8 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, View
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, View, CreateView
 
 from fitnessEcommerceApp.orders.models import Cart, CartItem
+from fitnessEcommerceApp.products.forms import CreateProductForm
 from fitnessEcommerceApp.products.models import Product
 
 
@@ -45,4 +47,7 @@ class AddProductToCart(LoginRequiredMixin, View):
         return redirect('all-products')
 
 
-
+class AddProduct(CreateView):
+    template_name = 'products/add-product.html'
+    form_class = CreateProductForm
+    success_url = reverse_lazy('all-products')
