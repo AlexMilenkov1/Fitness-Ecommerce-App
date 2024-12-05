@@ -14,6 +14,9 @@ class Cart(models.Model):
 
     products = models.ManyToManyField(Product, through='CartItem', related_name='carts')
 
+    def __str__(self):
+        return f'User id: {self.user.pk}'
+
 
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -49,3 +52,5 @@ class Order(models.Model):
         on_delete=models.CASCADE,
         related_name='orders'
     )
+
+

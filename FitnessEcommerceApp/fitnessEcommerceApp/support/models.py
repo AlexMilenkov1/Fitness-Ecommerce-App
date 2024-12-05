@@ -26,5 +26,9 @@ class SupportTicket(models.Model):
 
 class Response(models.Model):
     ticket = models.ForeignKey(SupportTicket, related_name="responses", on_delete=models.CASCADE)
+
     message = models.TextField()
-    created_at = models.DateTimeField(default=timezone.now)
+
+    created_at = models.DateTimeField(
+        default=timezone.now
+    )
