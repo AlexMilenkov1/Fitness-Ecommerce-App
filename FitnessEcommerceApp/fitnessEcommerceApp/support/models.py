@@ -1,9 +1,18 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
 
 
-# Create your models here.
+UserModel = get_user_model()
+
+
 class SupportTicket(models.Model):
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+        related_name='tickets'
+    )
+
     title = models.CharField(
         max_length=100,
         blank=False,
@@ -19,16 +28,15 @@ class SupportTicket(models.Model):
         auto_now_add=True
     )
 
+    email = models.EmailField(
+        max_length=254,
+        blank=False,
+        null=False,
+    )
+
     is_resolved = models.BooleanField(
         default=False
     )
 
-
-class Response(models.Model):
-    ticket = models.ForeignKey(SupportTicket, related_name="responses", on_delete=models.CASCADE)
-
-    message = models.TextField()
-
-    created_at = models.DateTimeField(
-        default=timezone.now
-    )
+    def __str__(self):
+        return self.title

@@ -8,7 +8,8 @@ urlpatterns = [
     path('', include('fitnessEcommerceApp.common.urls')),
     path('products/', include('fitnessEcommerceApp.products.urls')),
     path('accounts/', include('fitnessEcommerceApp.accounts.urls')),
-    path('cart/', include('fitnessEcommerceApp.orders.urls'))
+    path('cart/', include('fitnessEcommerceApp.orders.urls')),
+    path('support/', include('fitnessEcommerceApp.support.urls'))
 ]
 
 if settings.DEBUG:

@@ -1,12 +1,6 @@
 from django.contrib import admin
 
-from fitnessEcommerceApp.support.models import SupportTicket, Response
-
-
-class ResponseInline(admin.StackedInline):
-    model = Response
-    extra = 1
-    readonly_fields = ('created_at',)
+from fitnessEcommerceApp.support.models import SupportTicket
 
 
 @admin.register(SupportTicket)
@@ -17,8 +11,6 @@ class SupportTicketAdmin(admin.ModelAdmin):
 
     ordering = ('-created_at',)
 
-    inlines = [ResponseInline]
-
     fieldsets = (
         (None, {
             'fields': ('title', 'message', 'created_at', 'is_resolved')
@@ -26,11 +18,3 @@ class SupportTicketAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = ('created_at',)
-
-
-@admin.register(Response)
-class ResponseAdmin(admin.ModelAdmin):
-    list_display = ('ticket', 'message', 'created_at')
-    search_fields = ('ticket__title', 'message')
-    ordering = ('-created_at',)
-
