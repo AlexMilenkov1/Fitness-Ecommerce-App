@@ -2,116 +2,119 @@
 
 {% block content %}
     {% load static %}
-    <form method="post" action="{% url 'update-cart' cart.id %}">
-        {% csrf_token %}
-        <div class="shopping-container">
-            <table>
-                <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for item in cart_items %}
-                    <tr>
-                        <td>
-                            <div class="cart-info">
-                                <div class="image-wrapper">
-                                    <img src="{{ item.product.image_url.url }}" alt="{{ item.product.name }}">
-                                </div>
-                                <div>
-                                    <p>{{ item.product.name }}</p>
-                                    <small>Price: ${{ item.product.price|floatformat:2 }}</small>
-                                    <br>
-                                    <form method="post" action="{% url 'delete-product-cart' item.id %}">
-                                        <button class="button">Remove</button>
-                                        {% csrf_token %}
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <input
-                                    type="number"
-                                    class="quantity"
-                                    name="quantities[{{ item.id }}]"
-                                    min="1"
-                                    value="{{ item.quantity }}"
-                                    data-price="{{ item.product.price }}"
-                                    data-subtotal-id="subtotal-{{ forloop.counter }}"
-                                    data-stock="{{ item.product.in_stock }}">
-                        </td>
-                        <td>
-                            $<span id="subtotal-{{ forloop.counter }}">{{ item.product.price|floatformat:2 }}</span>
-                        </td>
-                    </tr>
-                {% empty %}
-                    <h2 class="empty-cart">You haven't added products in the cart yet!</h2>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
 
-        <div class="total-section">
-            <div class="total-info">
-                <p>Total:</p>
-                <p>$<span id="total-price">{{ total_price|floatformat:2 }}</span></p>
-            </div>
+
+    <div class="shopping-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in cart_items %}
+                <tr>
+                    <td>
+                        <div class="cart-info">
+                            <div class="image-wrapper">
+                                <img src="{{ item.product.image_url.url }}" alt="{{ item.product.name }}">
+                            </div>
+                            <div>
+                                <p>{{ item.product.name }}</p>
+                                <small>Price: ${{ item.product.price|floatformat:2 }}</small>
+                                <br>
+                                <form method="post" action="{% url 'delete-product-cart' item.id %}">
+                                    <button class="remove-item-cart">Remove</button>
+                                    {% csrf_token %}
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <input
+                                type="number"
+                                class="quantity"
+                                name="quantities[{{ item.id }}]"
+                                min="1"
+                                value="{{ item.quantity }}"
+                                data-price="{{ item.product.price }}"
+                                data-subtotal-id="subtotal-{{ forloop.counter }}"
+                                data-stock="{{ item.product.in_stock }}">
+                    </td>
+                    <td>
+                        $<span id="subtotal-{{ forloop.counter }}">{{ item.product.price|floatformat:2 }}</span>
+                    </td>
+                </tr>
+            {% empty %}
+                <h2 class="empty-cart">You haven't added products in the cart yet!</h2>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="total-section">
+        <div class="total-info">
+            <p>Total:</p>
+            <p>$<span id="total-price">{{ total_price|floatformat:2 }}</span></p>
+        </div>
+        <form method="post" action="{% url 'update-cart' cart.pk %}">
+            {% csrf_token %}
             {% if cart_items %}
                 <button type="submit" class="btn">Purchase</button>
             {% endif %}
-        </div>
-    </form>
+        </form>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    const quantityInputs = document.querySelectorAll('.quantity');
-    const totalPriceElement = document.getElementById('total-price');
+            const quantityInputs = document.querySelectorAll('.quantity');
+            const totalPriceElement = document.getElementById('total-price');
 
-    // Function to update the total price
-    function updateTotalPrice() {
-        let totalPrice = 0;
-        const subtotals = document.querySelectorAll('[id^="subtotal-"]');
-        subtotals.forEach(subtotal => {
-            totalPrice += parseFloat(subtotal.textContent) || 0;
-        });
-        totalPriceElement.textContent = totalPrice.toFixed(2);
-    }
-
-    // Event listener for quantity input change
-    quantityInputs.forEach(input => {
-        const max_value = input.dataset.stock
-        let initial_value = input.value
-        
-        if (initial_value > max_value) {
-            input.value = max_value
-        }
-        
-        input.addEventListener('input', function () {
-            const price = parseFloat(this.dataset.price);
-            const quantity = parseInt(this.value) || 0;
-            const subtotalId = this.dataset.subtotalId;
-            const subtotalElement = document.getElementById(subtotalId);
-
-            // Update the subtotal
-            const newSubtotal = price * quantity;
-            subtotalElement.textContent = newSubtotal.toFixed(2);
-
-            // Validate against stock availability
-            const MaxValueToEnter = parseInt(this.dataset.stock);
-            if (quantity > MaxValueToEnter) {
-                alert(`We have only ${MaxValueToEnter} left!`);
-                this.value = MaxValueToEnter;
-                subtotalElement.textContent = (price * MaxValueToEnter).toFixed(2); // Update subtotal to valid quantity
+            // Function to update the total price
+            function updateTotalPrice() {
+                let totalPrice = 0;
+                const subtotals = document.querySelectorAll('[id^="subtotal-"]');
+                subtotals.forEach(subtotal => {
+                    totalPrice += parseFloat(subtotal.textContent) || 0;
+                });
+                totalPriceElement.textContent = totalPrice.toFixed(2);
             }
 
-            // Update the total price
-            updateTotalPrice();
+            // Event listener for quantity input change
+            quantityInputs.forEach(input => {
+                const max_value = input.dataset.stock
+                let initial_value = input.value
+
+                if (initial_value > max_value) {
+                    input.value = max_value
+                }
+
+                input.addEventListener('input', function () {
+                    const price = parseFloat(this.dataset.price);
+                    const quantity = parseInt(this.value) || 0;
+                    const subtotalId = this.dataset.subtotalId;
+                    const subtotalElement = document.getElementById(subtotalId);
+
+                    // Update the subtotal
+                    const newSubtotal = price * quantity;
+                    subtotalElement.textContent = newSubtotal.toFixed(2);
+
+                    // Validate against stock availability
+                    const MaxValueToEnter = parseInt(this.dataset.stock);
+                    if (quantity > MaxValueToEnter) {
+                        alert(`We have only ${MaxValueToEnter} left!`);
+                        this.value = MaxValueToEnter;
+                        subtotalElement.textContent = (price * MaxValueToEnter).toFixed(2); // Update subtotal to valid quantity
+                    }
+
+                    // Update the total price
+                    updateTotalPrice();
+                });
+            });
         });
-    });
-});
 
     </script>
 

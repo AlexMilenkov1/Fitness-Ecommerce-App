@@ -11,10 +11,16 @@
             <div class="product-info-details">
                 <div class="edit-delete-wrapper">
                     <h4 class="category">{{ product.category }}</h4>
-                    <div class="icons">
-                        <a href="{% url 'edit-product' product.pk %}"><i class="fa-regular fa-pen-to-square" style="color: #ff613a;"></i></a>
-                        <a href="{% url 'delete-product' product.pk %}"><i class="fa-solid fa-delete-left" style="color: #ff613a;"></i></a>
-                    </div>
+                    {% if user.is_authenticated %}
+                        {% for group in user.groups.all %}
+                            {% if group.name == 'Superusers' %}
+                                <div class="icons">
+                                    <a href="{% url 'edit-product' product.pk %}"><i class="fa-regular fa-pen-to-square" style="color: #ff613a;"></i></a>
+                                    <a href="{% url 'delete-product' product.pk %}"><i class="fa-solid fa-delete-left" style="color: #ff613a;"></i></a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="title-price">
                     <h2 class="title">{{ product.name }}</h2>

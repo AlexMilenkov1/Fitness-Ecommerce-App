@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, View, CreateView, UpdateView, DeleteView
@@ -47,17 +47,19 @@ class AddProductToCart(LoginRequiredMixin, View):
         return redirect('all-products')
 
 
-class AddProduct(LoginRequiredMixin, CreateView):
+class AddProduct(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'products/add-product.html'
     form_class = CreateProductForm
     success_url = reverse_lazy('all-products')
     model = Product
+    permission_required = 'products.add_product'
 
 
-class EditProduct(LoginRequiredMixin, UpdateView):
+class EditProduct(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'products/edit-product.html'
     form_class = EditProductForm
     model = Product
+    permission_required = 'products.change_product'
 
     def get_success_url(self):
         return reverse_lazy(
@@ -66,7 +68,8 @@ class EditProduct(LoginRequiredMixin, UpdateView):
         )
 
 
-class DeleteProduct(LoginRequiredMixin, DeleteView):
+class DeleteProduct(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = 'products/delete-product.html'
     success_url = reverse_lazy('all-products')
     model = Product
+    permission_required = 'products.delete_product'

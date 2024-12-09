@@ -17,14 +17,24 @@
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'all-products' %}">Products</a></li>
             <li><a href="{% url 'add-ticket' %}">Support</a></li>
+            {% if user.is_authenticated %}
+                {% for group in user.groups.all %}
+                    {% if group.name == "Superusers" %}
+                        <li><a href="{% url 'add-product' %}">Add Product</a></li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if perms.support.can_resolve_tickets %}
+                <li><a href="{% url 'review-tickets' %}">View Tickets</a></li>
+            {% endif %}
             {% if request.user.is_authenticated %}
-                <li><a id="logout">Logout</a></li>
                 <li><a href="#">Profile</a></li>
-            {% else %}    
+                <li><a id="logout">Logout</a></li>
+            {% else %}
                 <li><a href="{% url 'login' %}">Account</a></li>
             {% endif %}
-            <li><a href="{% url 'add-product' %}">Add Product</a></li>
-            
+
+
         </ul>
         <div class="cart-img"><a href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}"></a></div>
         <div class="menu-img"><img src="{% static 'images/menu.png' %}"></div>

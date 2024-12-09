@@ -1,4 +1,3 @@
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
@@ -15,7 +14,11 @@ class CartView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        cart = get_object_or_404(Cart, user_id=self.request.user.id)
+        cart, is_created = Cart.objects.get_or_create(user=self.request.user)
+
+        if not is_created:
+            cart.save()
+
         cart_items = CartItem.objects.filter(cart=cart)
 
         total_price = sum([item.product.price * item.quantity for item in cart_items])

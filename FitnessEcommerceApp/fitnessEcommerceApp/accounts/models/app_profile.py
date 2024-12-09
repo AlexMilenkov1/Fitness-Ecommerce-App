@@ -46,3 +46,4 @@ class AppProfile(models.Model):
         null=True,
         blank=True
     )
+

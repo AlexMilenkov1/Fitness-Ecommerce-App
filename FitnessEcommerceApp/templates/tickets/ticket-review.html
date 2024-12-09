@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if tickets_to_resolve_count == 0 or not tickets %}
+        <h1 class="support-h1">We don't have tickets to resolve!</h1>
+    {% else %}    
+        <h1 class="support-h1">Support Tickets</h1>
+    {% endif %}
+    <table>
+        <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            {% if not ticket.is_resolved %}
+                <tr>
+                    <td>{{ ticket.user.id }}</td>
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ ticket.message }}</td>
+                    <td>{{ ticket.email }}</td>
+                    <td>{{ ticket.created_at }}</td>
+                    <td>
+                        <form method="post" action="{% url 'resolve-ticket' ticket.pk %}">
+                            {% csrf_token %}
+                            <button type="submit">Mark as Resolved</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
