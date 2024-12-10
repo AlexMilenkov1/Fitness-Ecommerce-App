@@ -66,6 +66,7 @@ header {
     text-decoration: none;
     margin-top: 1.7em;
     transition: background-color 0.5s;
+    cursor: pointer;
 }
  
 .btn:hover {

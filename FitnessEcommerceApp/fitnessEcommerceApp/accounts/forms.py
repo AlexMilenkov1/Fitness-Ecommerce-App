@@ -1,5 +1,8 @@
+from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
+from fitnessEcommerceApp.accounts.models import AppProfile
 
 UserModel = get_user_model()
 
@@ -28,3 +31,9 @@ class AppUserLoginForm(AuthenticationForm):
             })
 
             field.help_text = ''
+
+
+class AppProfileForm(forms.ModelForm):
+    class Meta:
+        model = AppProfile
+        exclude = ('user', )

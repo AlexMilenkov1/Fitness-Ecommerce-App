@@ -28,7 +28,7 @@
                 <li><a href="{% url 'review-tickets' %}">View Tickets</a></li>
             {% endif %}
             {% if request.user.is_authenticated %}
-                <li><a href="#">Profile</a></li>
+                <li><a href="{% url 'profile-details' user.pk %}">Profile</a></li>
                 <li><a id="logout">Logout</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Account</a></li>
@@ -65,7 +65,6 @@
                 <li><a href="#">Blog Post</a></li>
                 <li><a href="#">Return Policy</a></li>
                 <li><a href="#">Join Affiliate</a></li>
-                <li></li>
             </ul>
         </div>
         <div class="fot-col">
@@ -75,7 +74,6 @@
                 <li><a href="#">Twitter</a></li>
                 <li><a href="#">Instagram</a></li>
                 <li><a href="#">YouTube</a></li>
-                <li></li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="profile-container">
+        <!-- Profile Picture -->
+        <div class="profile-picture">
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+        </div>
+
+        <!-- User Data -->
+        <div class="profile-details">
+            <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+            <p><strong>Age:</strong> {{ profile.age }}</p>
+            <p><strong>Height:</strong> {{ profile.height }} cm</p>
+            <p><strong>Weight:</strong> {{ profile.weight }} kg</p>
+        </div>
+
+        <div class="profile-buttons">
+            <a class="btn" href="{% url 'profile' user.pk %}">Edit Profile</a>
+            <form method="post" action="{% url 'delete-profile' profile.pk %}">
+                {% csrf_token %}
+                <button class="btn">Delete Profile</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
