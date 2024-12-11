@@ -63,5 +63,5 @@
 - Staff (Can resolve tickets)
 - Admins (Can do every admin part, like CRUD with products, resolve tickets)
 
-# Set them in the admin panel, after creating superuser and test users
+### Set them in the admin panel, after creating superuser and test users
 
