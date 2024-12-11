@@ -42,10 +42,26 @@
 
   ```
 
-### 6. Run the project
+### 6. Populate the database with products
+
+  ```terminal
+
+    python manage.py populate_db
+
+  ```
+
+### 7. Run the project
 
   ```terminal
 
     python manage.py runserver
 
   ```
+
+## You have 3 types of users:
+- Regular Users
+- Staff (Can resolve tickets)
+- Admins (Can do every admin part, like CRUD with products, resolve tickets)
+
+### Set them in the admin panel, after creating superuser and test users
+
