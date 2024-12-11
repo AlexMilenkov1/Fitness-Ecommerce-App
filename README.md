@@ -57,3 +57,9 @@
     python manage.py runserver
 
   ```
+
+## You have 3 types of users:
+- Regular Users
+- Staff (Can resolve tickets)
+- Admins (Can do every admin part, like CRUD with products, resolve tickets)
+
