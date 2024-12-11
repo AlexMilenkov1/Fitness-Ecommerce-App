@@ -28,7 +28,11 @@
                 <li><a href="{% url 'review-tickets' %}">View Tickets</a></li>
             {% endif %}
             {% if request.user.is_authenticated %}
-                <li><a href="{% url 'profile-details' user.pk %}">Profile</a></li>
+                {% if request.user.profile.active_profile %}
+                    <li><a href="{% url 'profile-details' user.pk %}">Profile</a></li>
+                {% else %}
+                    <li><a href="{% url 'profile' user.pk %}">Profile</a></li>
+                {% endif %}
                 <li><a id="logout">Logout</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Account</a></li>

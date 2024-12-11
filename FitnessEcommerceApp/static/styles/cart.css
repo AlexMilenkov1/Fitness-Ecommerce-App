@@ -1,9 +1,9 @@
 .shopping-container {
-    margin: 5em 10em;
+    margin: 2em 10em;
 }
 
-table {
-    width: 100%;
+.cart-table {
+    width: 80%;
     border-collapse: collapse;
 }
 
@@ -56,14 +56,9 @@ td .image-wrapper img {
     justify-content: end;
     align-items: center;
     margin-right: 10em;
-    margin-bottom: 2em;
+    margin-bottom: 30em;
     gap: 2em;
 }
-
-.total-section  {
-    margin-bottom: 23em;
-}
-
 
 
 .cart-info form .button {

@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="profile-container">
         <!-- Profile Picture -->
         <div class="profile-picture">
-            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+            {% else %}
+                 <img src="{% static 'images/download.png'%}" alt="Profile Picture">
+            {% endif %}
         </div>
 
         <!-- User Data -->

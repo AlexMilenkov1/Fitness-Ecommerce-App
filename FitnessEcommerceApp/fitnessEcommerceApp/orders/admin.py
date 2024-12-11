@@ -1,7 +1,11 @@
 from django.contrib import admin
 
-from fitnessEcommerceApp.orders.models import Order, Cart, CartItem
+from fitnessEcommerceApp.orders.models import Order, Cart, CartItem, OrderItem
 
+
+class OrderItemInline(admin.TabularInline):
+    model = OrderItem
+    extra = 0
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
@@ -9,6 +13,7 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('user__email',)
     list_filter = ('is_sent', 'created_at')
     ordering = ('-created_at',)
+    inlines = [OrderItemInline]
 
 
 @admin.register(Cart)

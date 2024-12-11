@@ -36,4 +36,4 @@ class AppUserLoginForm(AuthenticationForm):
 class AppProfileForm(forms.ModelForm):
     class Meta:
         model = AppProfile
-        exclude = ('user', )
+        exclude = ('user', 'active_profile')

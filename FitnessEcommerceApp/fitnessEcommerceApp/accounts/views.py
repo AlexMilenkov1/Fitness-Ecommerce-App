@@ -28,6 +28,12 @@ class ProfilePage(LoginRequiredMixin, UpdateView):
     form_class = AppProfileForm
     template_name = 'accounts/profile-page.html'
 
+    def form_valid(self, form):
+        response = super().form_valid(form)  # Save form first
+        self.object.active_profile = True  # Explicitly set active_profile
+        self.object.save()
+        return response
+
     def get_success_url(self):
         return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
 

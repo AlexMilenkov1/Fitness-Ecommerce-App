@@ -15,30 +15,30 @@ class AppProfile(models.Model):
     first_name = models.CharField(
         max_length=30,
         null=True,
-        blank=True
+        blank=False
     )
 
     last_name = models.CharField(
         max_length=30,
         null=True,
-        blank=True
+        blank=False
     )
 
     age = models.PositiveIntegerField(
         null=True,
-        blank=True
+        blank=False
     )
 
     height = models.FloatField(
         help_text="Height in cm",
         null=True,
-        blank=True
+        blank=False
         )
 
     weight = models.FloatField(
         help_text="Weight in kg",
         null=True,
-        blank=True
+        blank=False
     )
 
     profile_picture = models.ImageField(
@@ -47,3 +47,6 @@ class AppProfile(models.Model):
         blank=True
     )
 
+    active_profile = models.BooleanField(
+        default=False,
+    )

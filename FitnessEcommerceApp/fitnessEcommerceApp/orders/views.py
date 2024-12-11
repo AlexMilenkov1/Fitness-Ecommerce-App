@@ -3,7 +3,7 @@ from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DeleteView, TemplateView
 
-from fitnessEcommerceApp.orders.models import Cart, CartItem, Order
+from fitnessEcommerceApp.orders.models import Cart, CartItem, Order, OrderItem
 
 
 # Create your views here.
@@ -82,6 +82,12 @@ def create_order(request, pk):
     for item in cart_items:
         product = item.product
         quantity = item.quantity
+
+        OrderItem.objects.create(
+            order=new_order,
+            product=product,
+            quantity=quantity
+        )
 
         product.in_stock -= quantity
 
