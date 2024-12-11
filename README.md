@@ -42,7 +42,15 @@
 
   ```
 
-### 6. Run the project
+### 6. Populate the database with products
+
+  ```terminal
+
+    python manage.py populate_db
+
+  ```
+
+### 7. Run the project
 
   ```terminal
 
