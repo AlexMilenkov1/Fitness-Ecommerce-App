@@ -8,7 +8,6 @@ from fitnessEcommerceApp.products.forms import CreateProductForm, EditProductFor
 from fitnessEcommerceApp.products.models import Product
 
 
-# Create your views here.
 class ProductsView(ListView):
     template_name = 'products/products.html'
     model = Product
