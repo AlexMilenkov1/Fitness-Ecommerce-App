@@ -57,6 +57,7 @@ def update_cart(request, pk):
                     item = CartItem.objects.get(id=item_id, cart=cart)
 
                     item.quantity = int(value)  # Update the quantity
+                    print(f'This is the qunatity {item.quantity}')
                     item.save()
                 except (CartItem.DoesNotExist, ValueError):
                     # Handle missing CartItem or invalid quantity gracefully
@@ -83,6 +84,8 @@ def create_order(request, pk):
         product = item.product
         quantity = item.quantity
 
+        print(f"Processing product: {product.name}, Quantity: {quantity}, Stock before: {product.in_stock}")
+
         OrderItem.objects.create(
             order=new_order,
             product=product,
@@ -92,6 +95,8 @@ def create_order(request, pk):
         product.in_stock -= quantity
 
         product.save()
+
+        print(f"Stock after: {product.in_stock}")
 
     cart_items.delete()
 

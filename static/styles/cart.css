@@ -5,6 +5,8 @@
 .cart-table {
     width: 80%;
     border-collapse: collapse;
+    margin-left: 3em;
+    margin-top: 2em;
 }
 
 .cart-info {

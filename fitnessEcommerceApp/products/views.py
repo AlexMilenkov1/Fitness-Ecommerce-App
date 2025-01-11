@@ -14,6 +14,20 @@ class ProductsView(ListView):
     context_object_name = 'products'
     paginate_by = 6
 
+    def get_queryset(self):
+        # Filter out products that are out of stock
+        return Product.objects.filter(in_stock__gt=0)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page_obj = context['page_obj']
+
+        # Check if the current page is empty after removing products
+        if not page_obj.object_list and page_obj.number > 1:
+            # Redirect to the previous page if current page is empty
+            return redirect(f'?page={page_obj.number - 1}')
+
+        return context
 
 class ProductInformation(DetailView):
     template_name = 'products/product-info.html'

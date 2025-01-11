@@ -4,7 +4,8 @@
     {% load static %}
 
 
-    <div class="shopping-container">
+    <form method="post" action="{% url 'update-cart' cart.pk %}" class="cart-form">
+        {% csrf_token %}
         <table class="cart-table">
             <thead>
             <tr>
@@ -52,20 +53,15 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>
-
-    <div class="total-section">
-        <div class="total-info">
-            <p>Total:</p>
-            <p>$<span id="total-price">{{ total_price|floatformat:2 }}</span></p>
+        <div class="total-section">
+            <div class="total-info">
+                <p>Total:</p>
+                <p>$<span id="total-price">{{ total_price|floatformat:2 }}</span></p>
+            </div>
+            <button type="submit" class="btn">Purchase</button>
         </div>
-        <form method="post" action="{% url 'update-cart' cart.pk %}">
-            {% csrf_token %}
-            {% if cart_items %}
-                <button type="submit" class="btn">Purchase</button>
-            {% endif %}
-        </form>
-    </div>
+    </form>
+
 
 
     <script>
