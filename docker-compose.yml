@@ -1,0 +1,29 @@
+services:
+    postgres:
+        container_name: db
+        networks:
+            - fitnessApp
+        ports:
+            - 5432:5432
+        environment:
+            - POSTGRES_PASSWORD=999999991
+            - POSTGRES_DB=fitness_app_db
+            - PGDATA=/var/lib/postgresql/data/pgdata
+        volumes:
+            - fitnessAppv:/var/lib/postgresql/data
+        image: postgres
+    fitness-app:
+        container_name: fitness-app-instance
+        ports:
+            - 8000:8000
+        networks:
+            - fitnessApp
+        env_file:
+            - .env
+        image: fitness-app
+networks:
+    fitnessApp:
+        name: fitnessApp
+volumes:
+    fitnessAppv:
+        name: fitnessAppv
