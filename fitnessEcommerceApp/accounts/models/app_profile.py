@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -41,12 +42,11 @@ class AppProfile(models.Model):
         blank=False
     )
 
-    profile_picture = models.ImageField(
-        upload_to='profile_images',
+    profile_picture = CloudinaryField(
+        'image',
+        blank=False,
         null=True,
-        blank=True
     )
-
     active_profile = models.BooleanField(
         default=False,
     )

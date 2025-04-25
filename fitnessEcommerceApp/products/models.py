@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -54,8 +55,8 @@ class Product(models.Model):
         ]
     )
 
-    image_url = models.ImageField(
-        upload_to='products_photos',
+    image_url = CloudinaryField(
+        'image',
         blank=False,
         null=False,
     )
