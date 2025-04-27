@@ -23,7 +23,7 @@ git clone https://github.com/AlexMilenkov1/Fitness-Ecommerce-App.git
 ### 2. Navigate to project directory
 
 ```bash
-cd Fitness-Ecommerce-App
+cd fitnessEcommerceApp
 ```
 
 3. Install dependencies
