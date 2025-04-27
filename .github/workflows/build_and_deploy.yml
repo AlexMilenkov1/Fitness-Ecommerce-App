@@ -32,8 +32,9 @@ jobs:
           DJANGO_SETTINGS_MODULE: fitnessEcommerceApp.settings
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           DEBUG: False
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}  # Add this line
         run: |
-          python manage.py collectstatic --noinput
+          python manage.py collectstatic --noinput --clear
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
