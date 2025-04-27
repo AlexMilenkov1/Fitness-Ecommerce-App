@@ -26,12 +26,12 @@ git clone https://github.com/AlexMilenkov1/Fitness-Ecommerce-App.git
 cd fitnessEcommerceApp
 ```
 
-3. Install dependencies
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Change DB settings in settings.py
+### 4. Change DB settings in settings.py
 In settings.py, update the database configuration to connect to your PostgreSQL database:
 
 ```bash
@@ -48,18 +48,18 @@ DATABASES = {
 ```
 
 
-7. Run migrations
+### 5. Run migrations
  ```bash
 python manage.py migrate
 ```
 
 
-9. Run development server
+### 6. Run development server
 ```bash
 python manage.py runserver
 ```
 
-11. Create superuser (for admin access)
+### 7. Create superuser (for admin access)
 ```bash
 python manage.py createsuperuser
 ```
